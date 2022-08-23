@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <h2>isto e o dashboard</h2>
  #teste
 <div class="container">
@@ -24,3 +25,13 @@
 </div>
 </div>
 <div class="container">
+=======
+<p>dashboard</p>
+
+<% current_user.boards.each do |board| %>
+  <% board.bookings.each do |booking| %>
+    <%= booking.total_price %>
+    <%= booking.start_date.to_formatted_s(:short) %> to <%= booking.end_date.to_formatted_s(:short) %>
+  <% end %>
+<% end %>
+>>>>>>> a9487b28b4b8669b5888622ab8c79307e4ce00d5
