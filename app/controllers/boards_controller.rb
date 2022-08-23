@@ -14,6 +14,7 @@ class BoardsController < ApplicationController
 
   def create
     @board = Board.new(board_params)
+    @board.volume = @board.width * @board.length * @board.thickness
     @board.user = current_user
 
     if @board.save
@@ -26,6 +27,6 @@ class BoardsController < ApplicationController
   private
 
   def board_params
-    params.require(:board).permit(:title, :description, :type_of_board, :tail_shape, :fins_type, :location, :width, :length, :thickness, :price_per_day, photos: [])
+    params.require(:board).permit(:description, :type_of_board, :tail_shape, :fins_type, :location, :width, :length, :thickness, :price_per_day, photos: [])
   end
 end
