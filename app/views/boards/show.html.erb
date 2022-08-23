@@ -2,9 +2,56 @@
   <div class="d-flex">
     <div class="p-2 w-100"><h1><%= @board.type_of_board + ' - ' + @board.location + ' ' + @board.volume.round.to_s + 'L'%> </h1></div>
     <% @board.photos.each do |photo| %>
-  <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-<% end %>
+    <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+    <% end %>
   </div>
+
+
+  <div class="container-show">
+        <div id="carouselExampleControls" class="carousel" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.F00dCf4bXxX0J-qEEf4qIQHaD6%26pid%3DApi&f=1" class="card-img-bottom rounded float-star" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.F00dCf4bXxX0J-qEEf4qIQHaD6%26pid%3DApi&f=1" class="card-img-bottom rounded float-star" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.F00dCf4bXxX0J-qEEf4qIQHaD6%26pid%3DApi&f=1" class="card-img-bottom rounded float-star" class="d-block w-100" alt="...">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+
+    <div class="card w-75">
+        <div class="card-body">
+          <h5 class="card-title"><%= @board.type_of_board + ' - ' + @board.location + ' ' + @board.volume.round.to_s + 'L'%></h5>
+          <p class="card-text"><%= @board.description %></p>
+          <p class="card-text">Price per day: <strong><%= @board.price_per_day %>$</strong></p>
+          <h6><strong>Board Specs</strong></h6>
+          <ul>
+          <li>Type: <%= @board.type_of_board %></li>
+          <li>Tail: <%= @board.tail_shape %></li>
+          <li>Fin: <%= @board.fins_type %></li>
+          <li>Width: <%= @board.width %> cm</li>
+          <li>Length: <%= @board.length %> cm</li>
+          <li>Thickness: <%= @board.thickness %> cm</li>
+          </ul>
+          <a href="#" class="btn btn-primary">Book Now</a>
+        </div>
+    </div>
+
+  </div>
+
+
 
 
 
