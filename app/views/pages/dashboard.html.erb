@@ -1,31 +1,4 @@
-<<<<<<< HEAD
-<h2>isto e o dashboard</h2>
- #teste
-<div class="container">
-<div class="row justify-content-center">
-<div class="row">
-<div class="col-sm-3">
 
-   <% @boards.each do |board| %>
-   <li>
-      <% if board.photos.attached? %>
-        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path board.photos.first.key, height: 300, crop: :fill %>')">
-          <%= link_to board.description, board_path(board) %>
-        </div>
-        <% else %>
-        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.F00dCf4bXxX0J-qEEf4qIQHaD6%26pid%3DApi&f=1)">
-          <%= link_to board.description, board_path(board) %>
-        </div>
-        <% end  %>
-        </li>
-
-      <% end  %>
-      </div>
-</div>
-</div>
-</div>
-<div class="container">
-=======
 <p>dashboard</p>
 
 <% current_user.boards.each do |board| %>
@@ -35,4 +8,3 @@
     <%= booking.start_date.to_formatted_s(:short) %> to <%= booking.end_date.to_formatted_s(:short) %>
   <% end %>
 <% end %>
->>>>>>> a9487b28b4b8669b5888622ab8c79307e4ce00d5
