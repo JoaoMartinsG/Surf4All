@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_23_080047) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_23_090902) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -45,7 +45,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_23_080047) do
   create_table "boards", force: :cascade do |t|
     t.text "title"
     t.text "description"
-    t.text "type"
+    t.text "type_of_board"
     t.text "tail_shape"
     t.text "fins_type"
     t.text "location"
