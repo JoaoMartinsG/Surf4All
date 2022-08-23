@@ -1,6 +1,9 @@
 <div class="container mt-5">
   <div class="d-flex">
     <div class="p-2 w-100"><h1><%= @board.type_of_board + ' - ' + @board.location + ' ' + @board.volume.round.to_s + 'L'%> </h1></div>
+    <% @board.photos.each do |photo| %>
+  <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+<% end %>
   </div>
 
 
