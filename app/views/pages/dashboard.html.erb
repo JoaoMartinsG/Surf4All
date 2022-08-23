@@ -29,6 +29,7 @@
 <p>dashboard</p>
 
 <% current_user.boards.each do |board| %>
+<%= board.type_of_board %>
   <% board.bookings.each do |booking| %>
     <%= booking.total_price %>
     <%= booking.start_date.to_formatted_s(:short) %> to <%= booking.end_date.to_formatted_s(:short) %>
