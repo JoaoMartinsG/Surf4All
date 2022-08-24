@@ -6,17 +6,6 @@
   <div class="container">
     <div class="row my-10">
       <% @boards.each do |board| %>
-        <div class="col-3">
-          <div class="card my-3" style="width: 18rem;">
-              <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.F00dCf4bXxX0J-qEEf4qIQHaD6%26pid%3DApi&f=1" class="card-img-bottom rounded float-star" alt="...">
-              <div class="card-body">
-                <h5 class="card-title"><%= link_to board.type_of_board + ' - ' + board.volume.round.to_s + 'L', board_path(board) %></h5>
-                <h6 class="card-subtitle mb-2 text-muted"><%= board.location %></h6>
-                <p class="card-text">Price per day: <strong><%= board.price_per_day %>$</strong></p>
-              </div>
-          </div>
-        </div>
-      <% end %>
     </div>
   </div>
 </div>
