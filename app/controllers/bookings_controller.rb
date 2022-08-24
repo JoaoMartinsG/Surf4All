@@ -18,10 +18,16 @@ class BookingsController < ApplicationController
     end
   end
 
-  def destroy
-    @booking = booking.find(params[:id])
-    @booking.destroy
-    redirect_to board_path(@booking.board), status: :see_other
+  def accept
+    @booking = Booking.find(params[:id])
+    @booking.update!(status: 'accepted')
+    redirect_to dashboard_path
+  end
+
+  def decline
+    @booking = Booking.find(params[:id])
+    @booking.update!(status: 'declined')
+    redirect_to dashboard_path
   end
 
   private
