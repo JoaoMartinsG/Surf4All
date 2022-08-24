@@ -40,7 +40,7 @@
     <div class="col-3">
       <div class="card my-3" style="width: 18rem;">
         <% if booking.board.photos.attached? %>
-          <%= cl_image_tag board.photos.first.key, crop: :fill %>
+          <%= cl_image_tag booking.board.photos.first.key, crop: :fill %>
         <% else %>
            <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.F00dCf4bXxX0J-qEEf4qIQHaD6%26pid%3DApi&f=1" class="card-img-bottom rounded float-star" alt="...">
         <% end %>
