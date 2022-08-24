@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get '/dashboard', to: 'pages#dashboard'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   resources :boards, only: %i[new create show index] do
-    resources :bookings, only: %i[new create ] do
+    resources :bookings, only: %i[new create] do
       member do
         patch :accept
         patch :decline

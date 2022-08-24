@@ -1,10 +1,37 @@
 <div class="container mt-5">
   <div class="d-flex">
     <div class="p-2 w-100"><h1><%= @board.type_of_board + ' - ' + @board.location + ' ' + @board.volume.round.to_s + 'L'%> </h1></div>
-    <% @board.photos.each do |photo| %>
-  <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-<% end %>
+    <%# <% @board.photos.each do |photo| %>
+    <%# <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+    <%# <% end %>
   </div>
+
+  <div class="pictures">
+    <% @board.photos.each do |photo| %>
+    <%= cl_image_tag photo.key, height: 300, width: 300, crop: :fill %>
+    <% end %>
+  </div>
+
+    <div class="card w-75">
+      <div class="card-body">
+          <h5 class="card-title"><%= @board.type_of_board + ' - ' + @board.location + ' ' + @board.volume.round.to_s + 'L'%></h5>
+          <p class="card-text"><%= @board.description %></p>
+          <p class="card-text">Price per day: <strong><%= @board.price_per_day %>$</strong></p>
+          <h6><strong>Board Specs</strong></h6>
+          <ul>
+          <li>Type: <%= @board.type_of_board %></li>
+          <li>Tail: <%= @board.tail_shape %></li>
+          <li>Fin: <%= @board.fins_type %></li>
+          <li>Width: <%= @board.width %> cm</li>
+          <li>Length: <%= @board.length %> cm</li>
+          <li>Thickness: <%= @board.thickness %> cm</li>
+          </ul>
+          <a href="#" class="btn btn-primary">Book Now</a>
+      </div>
+    </div>
+
+
+
 
 
 
