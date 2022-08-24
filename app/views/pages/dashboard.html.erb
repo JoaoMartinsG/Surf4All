@@ -1,10 +1,27 @@
+<h1>Dashboard</h1>
 
-<p>dashboard</p>
+<h2>My Listings</h2>
 
 <% current_user.boards.each do |board| %>
-<%= board.type_of_board %>
-  <% board.bookings.each do |booking| %>
-    <%= booking.total_price %>
-    <%= booking.start_date.to_formatted_s(:short) %> to <%= booking.end_date.to_formatted_s(:short) %>
+<div>
+  <%= board.type_of_board + ' ' + board.location + ' ' + board.volume.round.to_s + 'L' %> <%# board card %>
+  <% if board.bookings.empty? %>
+    <p>no requests</p>
   <% end %>
+  <% board.bookings.each do |booking| %>
+    <p>From <%= booking.start_date.to_formatted_s(:short) %> to <%= booking.end_date.to_formatted_s(:short) %></p>
+    <% if booking.status == 'pending'%>
+    <p>Requests</p>
+        <%= button_to "accept", accept_board_booking_path(:board_id => booking.board, :id => booking), method: :patch %>
+        <%= button_to "decline", decline_board_booking_path(:board_id => booking.board, :id => booking), method: :patch %>
+      <% end %>
+    <p>Requests</p>
+      <%= booking.status %>
+  <% end %>
+</div>
 <% end %>
+<h2>My Bookings</h2>
+<%# current_user.bookings.each do |booking|%>
+<%# for each booking create a card with all info  %>
+  <p>previous bookings</p>
+<%# end %>

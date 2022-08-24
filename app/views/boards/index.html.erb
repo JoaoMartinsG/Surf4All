@@ -7,14 +7,14 @@
   <div class="containter mt-5">
     <div class="d-flex justify-content-center align-items-center">
       <% @boards.each do |board| %>
-      <% if board.photos.attached? %>
-        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path board.photos.first.key, height: 300, crop: :fill %>')">
-          <%= link_to board.description, board_path(board) %>
-        </div>
-        <% else %>
-        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.F00dCf4bXxX0J-qEEf4qIQHaD6%26pid%3DApi&f=1)">
-          <%= link_to board.description, board_path(board) %>
-        </div>
+        <% if board.photos.attached? %>
+          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path board.photos.first.key, height: 300, crop: :fill %>')">
+            <%= link_to board.description, board_path(board) %>
+          </div>
+          <% else %>
+          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.F00dCf4bXxX0J-qEEf4qIQHaD6%26pid%3DApi&f=1)">
+            <%= link_to board.description, board_path(board) %>
+          </div>
         <% end  %>
       <% end  %>
     </div>
