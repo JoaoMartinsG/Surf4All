@@ -1,8 +1,11 @@
-<div class="container mt-5">
-  <div class="p-2 w-100 pt-5"><h2>Book this board:</h2></div>
-<%= simple_form_for [@board, @booking] do |f| %>
-  <%= f.input :start_date %>
-  <%= f.input :end_date %>
-  <%= f.submit 'BOOK ME', class: 'btn btn-success' %>
+<div class="container mt-5 d-flex justify-content-center">
+  <div class="container-form"><h2>Book this board:</h2>
+    <%= simple_form_for [@board, @booking] do |f| %>
+      <%= f.input :start_date %>
+      <%= f.input :end_date %>
+    <div class="my-3 d-flex justify-content-center">
+      <%= f.submit 'BOOK ME', class: 'btn btn-primary btn-lg' %>
+    </div>
+    <% end %>
   </div>
-<% end %>
+</div>
