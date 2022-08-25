@@ -50,7 +50,11 @@
             <h5 class="card-title"><%= booking.board.type_of_board + ' ' + booking.board.volume.round.to_s + 'L' %></h5>
             <h6 class="card-subtitle mb-2 text-muted"><%= booking.board.location %></h6>
             <p class="card-text">Price paid: <strong><%= booking.total_price %>$</strong></p>
-            <p class="card-text">Ended on: <strong><%= booking.end_date.to_formatted_s(:short) %></strong></p>
+            <% if booking.end_date.to_formatted_s(:short) < DateTime.current.to_formatted_s(:db)%>
+              <p class="card-text">Ended on: <strong><%= booking.end_date.to_formatted_s(:short) %></strong></p>
+            <% else %>
+              <p class="card-text">Ends on: <strong><%= booking.end_date.to_formatted_s(:short) %></strong></p>
+            <% end %>
           </div>
         </div>
       </div>
