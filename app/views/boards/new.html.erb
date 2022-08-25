@@ -1,18 +1,21 @@
+
 <div class="container mt-3 d-flex justify-content-center">
   <div class="container-form"><h2>Create a board:</h2>
     <%= simple_form_for(@board) do |f| %>
-      <%= f.input :description, input_html: { class: 'form-control' } %>
-      <%= f.input :type_of_board, collection: ["Shortboard", "Longboard", "Fish", "Stand-Up"] %>
-      <%= f.input :tail_shape, collection: ["Round", "Swallow", "Squash", "Pin", "Diamond", "Square"] %>
-      <%= f.input :fins_type, collection: ["Single", "Twin", "Thruster", "Quad"]  %>
-      <%= f.input :location, input_html: { class: 'form-control' } %>
-      <%= f.input :width, input_html: { class: 'form-control' } %>
-      <%= f.input :length, input_html: { class: 'form-control' } %>
-      <%= f.input :thickness, input_html: { class: 'form-control' } %>
-      <%= f.input :price_per_day, input_html: { class: 'form-control' } %>
+      <%= f.input :description, input_html: { class: 'form-control' }, placeholder: "Describe your board" %>
+      <%= f.input :type_of_board, collection: ["Shortboard", "Longboard", "Fish", "Stand-Up"], placeholder: "Type of board"%>
+      <%= f.input :tail_shape, collection: ["Round", "Swallow", "Squash", "Pin", "Diamond", "Square"], placeholder: "Board tail shape" %>
+      <%= f.input :fins_type, collection: ["Single", "Twin", "Thruster", "Quad"],placeholder: "Board fin type"  %>
+      <%= f.input :location, input_html: { class: 'form-control' }, placeholder: "Ericeira, Portugal" %>
+      <%= f.input :width, input_html: { class: 'form-control' },placeholder: "The width of board" %>
+      <%= f.input :length, input_html: { class: 'form-control' },placeholder: "The length of board" %>
+      <%= f.input :thickness, input_html: { class: 'form-control' },placeholder: "The thickness of board" %>
+      <%= f.input :price_per_day, input_html: { class: 'form-control' },placeholder:"Rental price" %>
       <%= f.input :photos, as: :file, input_html: { multiple: true } %>
       <div class="my-3 d-flex justify-content-center">
         <%= f.submit 'Create board', class: 'btn btn-primary btn-lg' %>
       </div>
     <% end %>
+   </div> 
 </div>
+
