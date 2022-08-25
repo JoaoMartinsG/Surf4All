@@ -19,3 +19,41 @@
   text-align: center;
   margin-bottom: 20px;
 }
+
+.cardbody-show {
+  width: 500px;
+  background-color: white;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  align-items: center;
+  padding: 50px;
+  border-radius: 10px;
+}
+
+.cardbody-show p {
+font-size: 18px;
+margin-bottom: 50px;
+}
+
+.cardbody-show ul {
+  list-style-type: none;
+  padding: 0px;
+}
+
+.price {
+  margin-left: auto;
+  margin-top: 40px;
+}
+
+.price h2 {
+  font-size: 25px;
+  align-content: center;
+  margin-left: 40px;
+}
+
+.price h3 {
+  margin: 30px 0 0 75px;
+}
+
+.carousel {
+  max-width: 250px;
+}
