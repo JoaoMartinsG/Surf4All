@@ -1,11 +1,21 @@
 class BoardsController < ApplicationController
+
   def index
-    @boards = Board.all
+    if params[:query].present?
+      sql_query = <<~SQL
+        boards.type_of_board ILIKE :query
+        OR boards.tail_shape ILIKE :query
+        OR boards.fins_type ILIKE :query
+        OR boards.location ILIKE :query
+      SQL
+      @boards = Board.where(sql_query, query: "%#{params[:query]}%")
+    else
+      @boards = Board.all
+    end
   end
 
   def show
     @board = Board.find(params[:id])
-    @board
   end
 
   def new
