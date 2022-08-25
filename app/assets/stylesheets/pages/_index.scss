@@ -1,8 +1,12 @@
 // Import page-specific CSS files here.
 @import "home";
+<<<<<<< HEAD
 
 .cards {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 10px;
 }
+=======
+@import "footer";
+>>>>>>> 81b27a7f3c620900fd891a0cfce79f7cdb485dfe
