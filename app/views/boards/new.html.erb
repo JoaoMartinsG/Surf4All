@@ -7,10 +7,10 @@
       <%= f.input :tail_shape, collection: ["Round", "Swallow", "Squash", "Pin", "Diamond", "Square"] %>
       <%= f.input :fins_type, collection: ["Single", "Twin", "Thruster", "Quad"] %>
       <%= f.input :location, input_html: { class: 'form-control' }, placeholder: "Ericeira, Portugal" %>
-      <%= f.input :width, input_html: { class: 'form-control' },placeholder: "48cm" %>
-      <%= f.input :length, input_html: { class: 'form-control' },placeholder: "162cm" %>
-      <%= f.input :thickness, input_html: { class: 'form-control' },placeholder: "6cm" %>
-      <%= f.input :price_per_day, input_html: { class: 'form-control' },placeholder:"€45" %>
+      <%= f.input :width, input_html: { class: 'form-control' },placeholder: "Ex. 48cm" %>
+      <%= f.input :length, input_html: { class: 'form-control' },placeholder: "Ex. 162cm" %>
+      <%= f.input :thickness, input_html: { class: 'form-control' },placeholder: "Ex. 6cm" %>
+      <%= f.input :price_per_day, input_html: { class: 'form-control' },placeholder:"Ex. €45" %>
       <%= f.input :photos, as: :file, input_html: { multiple: true } %>
       <div class="my-3 d-flex justify-content-center">
         <%= f.submit 'Create board', class: 'btn btn-primary btn-lg' %>
