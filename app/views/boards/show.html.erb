@@ -25,14 +25,11 @@
           <li>Width: <%= @board.width %> cm</li>
           <li>Length: <%= @board.length %> cm</li>
           <li>Thickness: <%= @board.thickness %> cm</li>
+          <li>Volume: <%= @board.volume %> L</li>
           </ul>
-          <a href="#" class="btn btn-primary">Book Now</a>
+          <%= link_to 'BOOK ME', new_board_booking_path(@board), class: 'btn btn-success' %>
       </div>
     </div>
-
-
-
-
 
 
 </div>

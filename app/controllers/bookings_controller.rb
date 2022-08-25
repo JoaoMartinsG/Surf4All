@@ -12,7 +12,7 @@ class BookingsController < ApplicationController
     days = (@booking.end_date - @booking.start_date).to_i
     @booking.total_price = @board.price_per_day * days
     if @booking.save
-      redirect_to board_path(@board)
+      redirect_to dashboard_path
     else
       render :new
     end
