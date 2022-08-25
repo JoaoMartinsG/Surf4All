@@ -1,9 +1,18 @@
 <div class='mt-5'>
   <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://wallpapercave.com/wp/wp5555822.jpg);">
-    <div class="container">
+    <div class="container ">
       <h1 class='text-center'>Surf4All</h1>
       <h4 class='text-center text-white '>Surf <strong>Anywhere</strong> Surf <strong>Anytime</strong>.</h4>
-      <a class="btn btn-flat text-white text-center" href="#">Search bar</a>
+      <div class='d-flex justify-content-center mt-5'>
+        <div class="w-50 "><%= form_with url: boards_path, method: :get, class: "d-flex" do %>
+          <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "Find a board" %>
+              <%= submit_tag "Search", class: "btn btn-primary" %>
+        <% end %>
+        </div>
+      </div>
     </div>
   </div>
 </div>
