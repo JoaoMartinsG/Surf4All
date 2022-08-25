@@ -3,11 +3,11 @@
     <div class="p-2 w-100"><h1>My Listings</h1></div>
     <div class="p-2"><%= link_to 'Rent Out a Board', new_board_path, class: 'btn btn-success rounded' %></div>
   </div>
-  <div class="d-flex">
+  <div class="d-flex justify-content-center">
     <div class="row my-10">
       <% current_user.boards.each do |board| %>
-        <div class="col-3">
-          <div class="card my-3 pt-3" style="width: 18rem;">
+        <div class="col-4">
+          <div class="card my-3 pt-3" style="width: 18rem min-height: 578px">
             <% if board.photos.attached? %>
               <%= cl_image_tag board.photos.first.key, :transformation=>[ {:effect=>"trim"}, {:width=>"250", :height=>"250", :crop=>"lpad"}] %>
             <% else %>
@@ -18,15 +18,17 @@
                 <h6 class="card-subtitle mb-2 text-muted"><%= board.location %></h6>
                 <p class="card-text">Price per day: <strong><%= board.price_per_day %>$</strong></p>
                 <% if board.bookings.empty? %>
-                  <p>No booking requests yet</p>
+                  <p class='border-top  p-1'><strong>No booking requests yet</strong></p>
                 <% end %>
                 <% board.bookings.each do |booking| %>
                   <p>From <%= booking.start_date.to_formatted_s(:short) %> to <%= booking.end_date.to_formatted_s(:short) %></p>
                   <% if booking.status == 'pending'%>
-                    <%= button_to "accept", accept_board_booking_path(:board_id => booking.board, :id => booking), method: :patch %>
-                    <%= button_to "decline", decline_board_booking_path(:board_id => booking.board, :id => booking), method: :patch %>
+                    <div class="d-flex justify-content-center">
+                      <%= button_to "Accept", accept_board_booking_path(:board_id => booking.board, :id => booking), method: :patch, class: 'btn btn-primary m-2' %>
+                      <%= button_to "Decline", decline_board_booking_path(:board_id => booking.board, :id => booking), method: :patch, class: 'btn btn-primary m-2' %>
+                    </div>
                   <% end %>
-                    <%= booking.status %>
+                    <p class='border-top  p-1'><strong>Current Status: </strong><%= booking.status %></p>
                 <% end %>
               </div>
           </div>
@@ -51,9 +53,9 @@
             <h6 class="card-subtitle mb-2 text-muted"><%= booking.board.location %></h6>
             <p class="card-text">Price paid: <strong><%= booking.total_price %>$</strong></p>
             <% if booking.end_date.to_formatted_s(:short) < DateTime.current.to_formatted_s(:db)%>
-              <p class="card-text">Ended on: <strong><%= booking.end_date.to_formatted_s(:short) %></strong></p>
+              <p class="card-text border-top  p-1"><strong>Ended on: </strong><%= booking.end_date.to_formatted_s(:short) %></strong></p>
             <% else %>
-              <p class="card-text">Ends on: <strong><%= booking.end_date.to_formatted_s(:short) %></strong></p>
+              <p class="card-text border-top  p-1"><strong>Ends on: </strong><%= booking.end_date.to_formatted_s(:short) %></strong></p>
             <% end %>
           </div>
         </div>
