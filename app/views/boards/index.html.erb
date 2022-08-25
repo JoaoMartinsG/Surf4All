@@ -22,6 +22,8 @@
               <div class="card-body">
                 <h5 class="card-title"><%= link_to board.type_of_board + ' - ' + board.volume.round.to_s + 'L', board_path(board) %></h5>
                 <h6 class="card-subtitle mb-2 text-muted"><%= board.location %></h6>
+                <h6 class="card-subtitle mb-2 text-muted"><%= board.tail_shape %> Tail</h6>
+                <h6 class="card-subtitle mb-2 text-muted"><%= board.fins_type %> Fin</h6>
                 <p class="card-text">Price per day: <strong><%= board.price_per_day %>$</strong></p>
               </div>
           </div>
