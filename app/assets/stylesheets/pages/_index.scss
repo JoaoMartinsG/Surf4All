@@ -7,3 +7,9 @@
   grid-gap: 10px;
 }
 @import "footer";
+
+body {
+  min-height: 100vh;
+  position: relative;
+  padding-bottom: 140px;
+}
