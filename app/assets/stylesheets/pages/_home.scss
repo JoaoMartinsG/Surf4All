@@ -1,1 +1,76 @@
 // Specific CSS for your home-page
+
+.card-body{
+
+}
+.card img{
+
+}
+.container_surf4all{
+  margin-top: 50px;
+  margin-bottom: 50px;
+  border: 2px solid black;
+}
+.container{}
+.bussiness_profile{
+  margin-right: 80px;
+  margin-bottom: 50px;
+  margin-left: 80px;
+  border: 2px solid black;
+}
+.surf_img{
+  height: 50px;
+  width: 50px;
+  position:relative;
+}
+
+.search_board_type{
+  position:absolute;
+  top: 100px;
+
+}
+.stat_quotes{
+  border: 2px solid black;
+
+}
+blockquote {
+  border-left:none
+}
+
+.quote-badge {
+  background-color: #000000;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.quote-box {
+
+  overflow: hidden;
+  margin-top: 50px;
+  padding-top: -25px;
+  border-radius: 17px;
+  background-color: #4ADFCC;
+  color: white;
+  width: 325px;
+  box-shadow: 2px 2px 2px 2px #E0E0E0;
+
+}
+
+.quotation-mark {
+
+  margin-top: 10px;
+  font-weight: bold;
+  font-size:100px;
+  color: white;
+  font-family: "Times New Roman", Times, Serif;
+
+}
+
+.quote-text {
+
+  font-size: 19px;
+  margin-top: -50px;
+}
+
+.blog-post-bottom pull-right {
+
+}
