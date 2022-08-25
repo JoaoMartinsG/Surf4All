@@ -1,23 +1,26 @@
 <div class="container mt-5">
   <div class="d-flex">
-    <div class="p-2 w-100"><h1>boards</h1></div>
-    <div class="p-2"><%= link_to 'New board', new_board_path, class: 'btn btn-success'%></div>
+    <div class="p-2 w-100"><h1>Boards</h1></div>
+    <div class="p-2"><%= link_to 'New board', new_board_path, class: 'btn btn-success' %></div>
   </div>
-  <ul>
-  <div class="containter mt-5">
-    <div class="d-flex justify-content-center align-items-center">
+  <div class="container">
+    <div class="row my-10">
       <% @boards.each do |board| %>
-      <% if board.photos.attached? %>
-        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path board.photos.first.key, height: 300, crop: :fill %>')">
-          <%= link_to board.description, board_path(board) %>
+       <div class="col-3">
+          <div class="card my-3" style="width: 18rem;">
+            <% if board.photos.attached? %>
+              <%= cl_image_tag board.photos.first.key, crop: :fill %>
+            <% else %>
+              <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.F00dCf4bXxX0J-qEEf4qIQHaD6%26pid%3DApi&f=1" class="card-img-bottom rounded float-star" alt="...">
+            <% end %>
+              <div class="card-body">
+                <h5 class="card-title"><%= link_to board.type_of_board + ' - ' + board.volume.round.to_s + 'L', board_path(board) %></h5>
+                <h6 class="card-subtitle mb-2 text-muted"><%= board.location %></h6>
+                <p class="card-text">Price per day: <strong><%= board.price_per_day %>$</strong></p>
+              </div>
+          </div>
         </div>
-        <% else %>
-        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.F00dCf4bXxX0J-qEEf4qIQHaD6%26pid%3DApi&f=1)">
-          <%= link_to board.description, board_path(board) %>
-        </div>
-        <% end  %>
-      <% end  %>
+      <% end %>
     </div>
   </div>
-  </ul>
 </div>
