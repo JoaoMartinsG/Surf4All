@@ -1,29 +1,35 @@
 require "open-uri"
-
 puts "########## .....Destroying all boards..... #########"
 Board.destroy_all
 
+puts "########## .....Destroying all user..... #########"
+User.destroy_all
+
+puts "########## .....Creating All Users..... ##########"
+
+puts "########## .....Creating Team Users..... ##########"
+
+user1 = User.create(email: 'rafaquintanilha@lewagon.com', password: 'password', first_name: 'Rafael', last_name: 'Quintanilha')
+user2 = User.create(email: 'joaomartins@lewagon.com', password: 'password', first_name: 'Joao', last_name: 'Martins')
+user3 = User.create(email: 'alexcortereal@lewagon.com', password: 'password', first_name: 'Alex', last_name: 'Corte-Real')
+user4 = User.create(email: 'lochlansavage@lewagon.com', password: 'password', first_name: 'Lochlan', last_name: 'Savage')
+
+puts "########## .....Creating Demo Users..... ##########"
+
+Renter = User.create(email: 'renter@lewagon.com', password: 'password', first_name: 'Renter', last_name: 'Surfer')
+Rentee = User.create(email: 'rentee@lewagon.com', password: 'password', first_name: 'Rentee', last_name: 'Surfer')
+
+puts "########## .....Users created succesfully..... #########"
+
 puts "########## .....Creating Boards..... ##########"
 file = URI.open("https://res.cloudinary.com/jmartins/image/upload/v1661464979/development/9x5g2yqf20uwpxgn8ixc7xfldy4g.png")
-board = Board.new(volume: 24.5, description: "Nothing feels better than to ride the nose on a long section hanging ten or even getting a cheater five up there. Any longboarder worth their salt needs to one of these moves in their repertoire and the Long Haul / Fusion-Poly makes it easier.", type_of_board: "Shortboard", tail_shape: "Squash", fins_type: "Single", location: "Porto", width: 12.5, length: 21.7, thickness: 6.2, price_per_day: 20, user_id: 1)
-board.photo.attach(io: file, filename: "9x5g2yqf20uwpxgn8ixc7xfldy4g.png", content_type: "image/png")
+board = Board.new(volume: 24.5, description: "Nice board Very good Thank You come again.", type_of_board: "Shortboard", tail_shape: "Squash", fins_type: "Single", location: "Porto, Portugal", width: 12.5, length: 21.7, thickness: 6.2, price_per_day: 20, user_id: user1.id)
+board.photos.attach(io: file, filename: "9x5g2yqf20uwpxgn8ixc7xfldy4g.png", content_type: "image/png")
 board.save
 
-# Board.create(volume: 24.5, description: "Nothing feels better than to ride the nose on a long section hanging ten or even getting a cheater five up there. Any longboarder worth their salt needs to one of these moves in their repertoire and the Long Haul / Fusion-Poly makes it easier.", type_of_board: "Shortboard", tail_shape: "Squash", fins_type: "Single", location: "Porto", width: 12.5, length: 21.7, thickness: 6.2, price_per_day: 20, user_id: 1)
-# Board.create(volume: 27.2, description: "Nothing feels better than to ride the nose on a long section hanging ten or even getting a cheater five up there. Any longboarder worth their salt needs to one of these moves in their repertoire and the Long Haul / Fusion-Poly makes it easier.", type_of_board: "LongBoard", tail_shape: "Square", fins_type: "Single", location: "Lisbon", width: 21.5, length: 24.7, thickness: 8.4, price_per_day: 10, user_id: 1)
-# Board.create(volume: 28.7, description: "The Squirty / Fusion-Poly is a balance between paddling and maneuverability, the Yin and Yang of surfboard design. Can't do much surfing if you're not catching the waves. ", type_of_board: "Fish Board", tail_shape: "Square", fins_type: "Single", location: "Malibu", width: 23.5, length: 58.9, thickness: 7.2, price_per_day: 20.5, user_id: 1)
-# Board.create(volume: 27.5, description: "The LITTLE DARLIN grew out of the Gerry's extremely popular Cheater in the search for more high performance without losing the paddle power. ", type_of_board: "Malibu", tail_shape: "Pin", fins_type: "Twin", location: "Rio de Janeiro", width: 26.5, length: 52.7, thickness: 6.8, price_per_day: 50, user_id: 1)
-# Board.create(volume: 24.7, description: "The LITTLE DARLIN grew out of the Gerry's extremely popular Cheater in the search for more high performance without losing the paddle power. ", type_of_board: "Gun", tail_shape: "Squash", fins_type: "Twin", location: "Porto", width: 32.8, length: 21.7, thickness: 6.2, price_per_day: 10.5, user_id: 1)
-# Board.create(volume: 27.8, description: "The LITTLE DARLIN grew out of the Gerry's extremely popular Cheater in the search for more high performance without losing the paddle power. ", type_of_board: "Stand-Up", tail_shape: "Pin", fins_type: "Twin", location: "Rio de Janeiro", width: 22.5, length: 49.5, thickness: 4.2, price_per_day: 9.9, user_id: 1)
-# Board.create(volume: 29.5, description: "The Squirty / Fusion-Poly is a balance between paddling and maneuverability, the Yin and Yang of surfboard design. Can't do much surfing if you're not catching the waves. ", type_of_board: "Tow-In", tail_shape: "Pin", fins_type: "Twin", location: "Porto", width: 33.4, length: 21.7, thickness: 6.2, price_per_day: 31.5, user_id: 1)
-# Board.create(volume: 24.5, description: "The Squirty / Fusion-Poly is a balance between paddling and maneuverability, the Yin and Yang of surfboard design", type_of_board: "Shortboard", tail_shape: "Asymmetric", fins_type: "Single", location: "Malibu", width: 20.5, length: 41.4, thickness: 5.0, price_per_day: 20, user_id: 1)
-# Board.create(volume: 20.5, description: "The Squirty / Fusion-Poly is a balance between paddling and maneuverability, the Yin and Yang of surfboard design", type_of_board: "LongBoard", tail_shape: "Squash", fins_type: "Thruster", location: "Malibu", width: 22.5, length: 45.2, thickness: 6.7, price_per_day: 10, user_id: 1)
-# Board.create(volume: 22.5, description: "The Squirty / Fusion-Poly is a balance between paddling and maneuverability, the Yin and Yang of surfboard design", type_of_board: "Malibu", tail_shape: "Asymmetric", fins_type: "Thruster", location: "Gold Coast", width: 32.3, length: 41.7, thickness: 8.1, price_per_day: 69, user_id: 1)
-# Board.create(volume: 26.5, description: "The Squirty / Fusion-Poly is a balance between paddling and maneuverability, the Yin and Yang of surfboard design. Can't do much surfing if you're not catching the waves. ", type_of_board: "Malibu", tail_shape: "Asymmetric", fins_type: "Thruster", location: "Nazaré", width: 44.2, length: 21.7, thickness: 6.9, price_per_day: 40, user_id: 1)
-# Board.create(volume: 22.5, description: "POCKET ROCKET // For Indo, Hawaii, or anywhere 4'-8' waves are pumping, the Pocket Rocket would be the main battle board in your quiver. ", type_of_board: "Stand-Up", tail_shape: "Swallow", fins_type: "Thruster", location: "Porto", width: 32.5, length: 60.7, thickness: 6.7, price_per_day: 32.5, user_id: 1)
-# Board.create(volume: 28.7, description: "The Midway/Fusion Poly is a high performance mid-length designed for old style riding or modern day maneuvers, whatever one's pleasure happens to be. ", type_of_board: "Shortboard", tail_shape: "Swallow", fins_type: "Single", location: "Porto", width: 38.5, length: 53.0, thickness: 5.2, price_per_day: 35.9, user_id: 1)
-# Board.create(volume: 30.5, description: "SOMETHING FISHY // Back in the early 1970s, Steve Lis created a surfboard design that has endured through the decades and is as valid today as it was almost 50 years ago.", type_of_board: "Shortboard", tail_shape: "Squash", fins_type: "Quad", location: "Lisbon", width: 21.5, length: 21.0, thickness: 4.2, price_per_day: 29.9, user_id: 1)
-# Board.create(volume: 27.5, description: "Nothing feels better than to ride the nose on a long section hanging ten or even getting a cheater five up there. Any longboarder worth their salt needs to one of these moves in their repertoire and the Long Haul / Fusion-Poly makes it easier. ", type_of_board: "LongBoard", tail_shape: "Round", fins_type: "Quad", location: "Lisbon", width: 25.5, length: 21.3, thickness: 3.2, price_per_day: 29, user_id: 1)
-# Board.create(volume: 25.5, description: "POCKET ROCKET // For Indo, Hawaii, or anywhere 4'-8' waves are pumping, the Pocket Rocket would be the main battle board in your quiver.", type_of_board: "Gun", tail_shape: "Round", fins_type: "Quad", location: "Rio de Janeiro", width: 26.3, length: 21.1, thickness: 6.2, price_per_day: 19.9, user_id: 1)
-# Board.create(volume: 22.5, description: "The Squirty / Fusion-Poly is a balance between paddling and maneuverability, the Yin and Yang of surfboard design.", type_of_board: "Tow-In", tail_shape: "Round", fins_type: "Quad", location: "Porto", width: 21.1, length: 21.7, thickness: 6.2, price_per_day: 59.9, user_id: 1)
+file = URI.open("https://res.cloudinary.com/jmartins/image/upload/v1661464974/development/2xmy1nudac0p0timy5dvjyuu86jx.png")
+board = Board.new(volume: 24.5, description: "Broke a piece but all good surf with one foot only.", type_of_board: "Shortboard", tail_shape: "Squash", fins_type: "Single", location: "Porto", width: 12.5, length: 21.7, thickness: 6.2, price_per_day: 20, user_id: user2.id)
+board.photos.attach(io: file, filename: "2xmy1nudac0p0timy5dvjyuu86jx.png", content_type: "image/png")
+board.save
+
 puts "########## .....Boards created succesfully..... #########"

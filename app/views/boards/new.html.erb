@@ -10,7 +10,7 @@
       <%= f.input :width, input_html: { class: 'form-control',min: "0" },placeholder: 'Ex. 2ft' %>
       <%= f.input :length, input_html: { class: 'form-control',min: "0" },placeholder: 'Ex. 6ft' %>
       <%= f.input :thickness, input_html: { class: 'form-control',min: "0" },placeholder: 'Ex. 3"' %>
-      <%= f.input :price_per_day, input_html: { class: 'form-control',min: "0", placeholder: "45€" } %>
+      <%= f.input :price_per_day, input_html: { class: 'form-control',min: "0", placeholder: "$45" } %>
       <%= f.input :photos, as: :file, input_html: { multiple: true } %>
       <div class="my-3 d-flex justify-content-center">
         <%= f.submit 'Create board', class: 'btn btn-primary btn-lg' %>
