@@ -28,7 +28,7 @@
                       <%= button_to "Decline", decline_board_booking_path(:board_id => booking.board, :id => booking), method: :patch, class: 'btn btn-primary m-2' %>
                     </div>
                   <% end %>
-                    <p class='border-top  p-1'><strong>Current Status: </strong><%= booking.status %></p>
+                    <p class='border-top  p-1'><strong>Status: </strong><%= booking.status %></p>
                 <% end %>
               </div>
           </div>
