@@ -3,11 +3,11 @@
     <div class="p-2 w-100"><h1>My Listings</h1></div>
     <div class="p-2"><%= link_to 'Rent Out a Board', new_board_path, class: 'btn btn-success rounded' %></div>
   </div>
-  <div class="d-flex justify-content-center">
+  <div class="d-flex">
     <div class="row my-10">
       <% current_user.boards.each do |board| %>
         <div class="col-4">
-          <div class="card my-3 pt-3" style="width: 18rem ">
+          <div class="card my-3 pt-3" style="width: 18rem; margin-right:160px">
             <% if board.photos.attached? %>
               <%= cl_image_tag board.photos.first.key, :transformation=>[ {:effect=>"trim"}, {:width=>"250", :height=>"250", :crop=>"lpad"}] %>
             <% else %>
